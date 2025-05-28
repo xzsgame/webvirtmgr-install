@@ -18,7 +18,7 @@ read -p "webvirtmgr组（默认www）：" webvirtmgr_group
 webvirtmgr_group=${webvirtmgr_group:-www}
 
 echo -e "\033[36m 安装webvirtcloud \033[0m"
-apt install wget git virtualenv python3-virtualenv python3-dev python3-lxml libvirt-dev zlib1g-dev libxslt1-dev supervisor libsasl2-modules gcc pkg-config python3-guestfs -y
+apt install wget git virtualenv python3-virtualenv python3-dev python3-lxml libvirt-dev zlib1g-dev libxslt1-dev supervisor libsasl2-modules gcc pkg-config python3-guestfs libsasl2-dev libldap2-dev libssl-dev -y
 echo -e "\033[36m 这里的clone使用了代理，后期如果失效不能下载，请换成其他的。或者使用其他能访问代码库的方法。 \033[0m"
 sudo git clone https://ghfast.top/https://github.com/retspen/webvirtcloud.git
 cd webvirtcloud
