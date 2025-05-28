@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo -e "\033[36m WebVirtCloud, Ubuntu 24.04 LTS 一键安装脚本 \033[0m"
 if [ $USER != "root" ];then
     echo -e "\033[31m 当前用户是${USER}，请用sudo或root用户运行此脚本 \033[0m"
