@@ -6,23 +6,26 @@
 现已支持WebVirtCloud一键安装
 
 ## 食用方法
+
+### ~~WebVirtMgr安装~~
+~~$ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/install.sh -O install.sh~~
+~~$ chmod +x install.sh && sudo ./install.sh~~
+
+### ~~WebVirtMgr卸载~~
+~~$ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/uninstall.sh -O uninstall.sh~~
+~~$ chmod +x uninstall.sh && sudo ./uninstall.sh~~
+
+### ~~WebVirtCloud卸载~~
+~~$ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/uninstall-cloud.sh -O uninstall-cloud.sh~~
+~~$ chmod +x uninstall-cloud.sh && sudo ./uninstall-cloud.sh~~
+
 ```shell
-# WebVirtMgr安装
-$ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/install.sh -O install.sh
-$ chmod +x install.sh && sudo ./install.sh
-
-# WebVirtMgr卸载
-$ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/uninstall.sh -O uninstall.sh
-$ chmod +x uninstall.sh && sudo ./uninstall.sh
-
-# WebVirtCloud安装
+### WebVirtCloud安装
 $ wget https://ghfast.top/https://raw.githubusercontent.com/xzsgame/webvirtmgr-install/main/install-cloud.sh -O install-cloud.sh
 $ chmod +x install-cloud.sh && sudo ./install-cloud.sh
-
-# WebVirtCloud卸载
-$ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/uninstall-cloud.sh -O uninstall-cloud.sh
-$ chmod +x uninstall-cloud.sh && sudo ./uninstall-cloud.sh
 ```
+
+
 
 ## 注意事项
 1. webvirtmgr安装在/var/www/webvirtmgr，webvirtcloud安装在/srv/webvirtcloud
