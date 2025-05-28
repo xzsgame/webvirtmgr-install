@@ -20,7 +20,7 @@
 ~~$ chmod +x uninstall-cloud.sh && sudo ./uninstall-cloud.sh~~
 
 ```shell
-### WebVirtCloud安装
+# WebVirtCloud安装，环境是ubuntu24.04
 $ wget https://ghfast.top/https://raw.githubusercontent.com/xzsgame/webvirtmgr-install/main/install-cloud.sh -O install-cloud.sh
 $ chmod +x install-cloud.sh && sudo ./install-cloud.sh
 ```
