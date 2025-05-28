@@ -16,7 +16,7 @@ $ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/unins
 $ chmod +x uninstall.sh && sudo ./uninstall.sh
 
 # WebVirtCloud安装
-$ wget https://raw.githubusercontent.com/CHFreezer/webvirtmgr-install/main/install-cloud.sh -O install-cloud.sh
+$ wget https://ghfast.top/https://raw.githubusercontent.com/xzsgame/webvirtmgr-install/main/install-cloud.sh -O install-cloud.sh
 $ chmod +x install-cloud.sh && sudo ./install-cloud.sh
 
 # WebVirtCloud卸载
