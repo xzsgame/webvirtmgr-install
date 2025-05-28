@@ -1,17 +1,17 @@
 #!/bin/sh
-echo -e "\033[36m WebVirtCloud, Ubuntu 20.04 LTS 一键安装脚本 \033[0m"
+echo -e "\033[36m WebVirtCloud, Ubuntu 24.04 LTS 一键安装脚本 \033[0m"
 if [ $USER != "root" ];then
     echo -e "\033[31m 当前用户是${USER}，请用sudo或root用户运行此脚本 \033[0m"
 	exit
 fi
 
 echo -e "\033[36m 更新apt仓 \033[0m"
-apt update
-apt install python3
+apt update && sudo apt upgrade -y
+#apt install python3
 
 secret_key=$(python3 -c 'import random, string; haystack = string.ascii_letters + string.digits; print("".join([random.SystemRandom().choice(haystack) for _ in range(50)]))')
 
-echo -e "\033[36m 设置用户/组 \033[0m"
+echo -e "\033[36m 设置用户/组，如果是宝塔环境，使用www;如果是单独安装nginx，使用www-data \033[0m"
 read -p "webvirtmgr用户（默认www）：" webvirtmgr_user
 webvirtmgr_user=${webvirtmgr_user:-www}
 read -p "webvirtmgr组（默认www）：" webvirtmgr_group
@@ -19,7 +19,8 @@ webvirtmgr_group=${webvirtmgr_group:-www}
 
 echo -e "\033[36m 安装webvirtcloud \033[0m"
 apt install wget git virtualenv python3-virtualenv python3-dev python3-lxml libvirt-dev zlib1g-dev libxslt1-dev supervisor libsasl2-modules gcc pkg-config python3-guestfs -y
-sudo git clone https://github.com/retspen/webvirtcloud.git
+echo -e "\033[36m 这里的clone使用了代理，后期如果失效不能下载，请换成其他的。或者使用其他能访问代码库的方法。 \033[0m"
+sudo git clone https://ghfast.top/https://github.com/retspen/webvirtcloud.git
 cd webvirtcloud
 cp webvirtcloud/settings.py.template webvirtcloud/settings.py
 sed -i "s/SECRET_KEY = \"\"/SECRET_KEY = \"${secret_key}\"/g" webvirtcloud/settings.py
@@ -32,7 +33,8 @@ chown -R ${webvirtmgr_user}:${webvirtmgr_group} /srv/webvirtcloud
 cd /srv/webvirtcloud
 virtualenv -p python3 venv
 source venv/bin/activate
-pip install -r conf/requirements.txt
+# pip改为国内源，否则下载太慢会导致安装失败。
+pip install -r conf/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 python3 manage.py migrate
 chown -R ${webvirtmgr_user}:${webvirtmgr_group} /srv/webvirtcloud
 
